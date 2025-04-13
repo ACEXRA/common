@@ -1,0 +1,14 @@
+# Binaries
+*.exe
+*.out
+*.test
+
+# Go workspace stuff
+/bin/
+/pkg/
+/vendor/
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
