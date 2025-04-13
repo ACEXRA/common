@@ -30,7 +30,7 @@ func main() {
 	upFile := fmt.Sprintf("%s_%s.up.sql", timestamp, tableName)
 	downFile := fmt.Sprintf("%s_%s.down.sql", timestamp, tableName)
 
-	migrationDir := "../db/migrations"
+	migrationDir := "./migrate/migrations"
 
 	//create directory if it doesnt exist
 	if _,err:=os.Stat(migrationDir);os.IsNotExist(err){
