@@ -1,11 +1,7 @@
-CREATE TABLE users (
+CREATE TABLE group_table (
     _id BIGINT NOT NULL AUTO_INCREMENT,
     _uuid VARCHAR(36) NOT NULL,
-    user_name VARCHAR(256) UNIQUE NOT NULL,
-    first_name VARCHAR(256) NOT NULL,
-    last_name VARCHAR(256),
-    email VARCHAR(256) NOT NULL,
-    phone_number BIGINT NOT NULL,
+    group_name VARCHAR(256) UNIQUE NOT NULL,
     active BOOLEAN NOT NULL,
     created_at DATETIME,
     updated_at DATETIME,
@@ -14,5 +10,5 @@ CREATE TABLE users (
     PRIMARY KEY (_id),
 
     INDEX idx_uuid (_uuid),
-    INDEX idx_email (email)
+    INDEX idx_group_name (group_name)
 );
