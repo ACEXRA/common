@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"database/sql"
 	"log"
+	"os"
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/mysql"
@@ -13,6 +15,15 @@ import (
 func main() {
 
 	dsn := "root:root@tcp(localhost:3306)/scim?parseTime=true"
+
+	reader:=bufio.NewReader(os.Stdin)
+
+	print("Enter up or down")
+	flag,err:=reader.ReadString('\n');
+
+	if err!=nil{
+		log.Fatalf("Error reading input: %v",err)
+	}
 
     db, err := sql.Open("mysql", dsn)
 	if err!=nil{
@@ -28,6 +39,14 @@ func main() {
 	if err != nil{
 		log.Fatalf("New data instance failed: %v",err)
 	}
-    m.Up()
+	switch flag{
+	case "up":
+		m.Up()
+	case "down":
+		m.Down()
+	default:
+		m.Up()
+	}
+    
 	println("Migration ran successfully")
 }
