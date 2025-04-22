@@ -9,7 +9,7 @@ import (
 
 var DB *sql.DB
 
-func ConnectDB() {
+func ConnectDB() *sql.DB{
 	var err error
 	dsn := "root:root@tcp(localhost:3306)/scim?parseTime=true"
 
@@ -24,4 +24,5 @@ func ConnectDB() {
 	}
 
 	println("Database connection success")
+	return DB
 }
